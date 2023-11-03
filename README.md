@@ -1,4 +1,4 @@
-  <h3><b>Data Model</b></h3>
+  <h3><b>Blog App</b></h3>
 
 </div>
 
@@ -25,9 +25,9 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 Data Model <a name="about-project"></a>
+# 📖 Blog App <a name="about-project"></a>
 
-**[Data Model]**  The project implements a database schema using ActiveRecord, defining tables for managing data related to comments, likes, posts, and users. It also establishes foreign key relationships to maintain data integrity between these tables. it's  typically part of a Ruby on Rails application's database migration, defining the structure of the database.
+**[Blog App]**  The project implements a database schema using ActiveRecord, defining tables for managing data related to comments, likes, posts, and users. It also establishes foreign key relationships to maintain data integrity between these tables. it's  typically part of a Ruby on Rails application's database migration, defining the structure of the database.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -51,7 +51,7 @@
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To use this project : 
-- `https://github.com/mumbereh/Data_model.git` to clone the project
+- `https://github.com/mumbereh/Blog_App.git` to clone the project
 - Make sure that you have ruby & rails  installed on your computer
 
 
