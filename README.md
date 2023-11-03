@@ -1,4 +1,4 @@
-  <h3>Readme Templete for Blog App/b></h3>
+  <h3>Blog App/b></h3>
 
 </div>
 
