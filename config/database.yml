@@ -12,6 +12,10 @@ default: &default
 development:
   <<: *default
   database: storage/development.sqlite3
+  username: 'postgres'
+  password: 'mumbere'
+  host: localhost
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,3 +27,7 @@ test:
 production:
   <<: *default
   database: storage/production.sqlite3
+  username: 'postgres'
+  password: 'mumbere'
+  host: localhost
+  
