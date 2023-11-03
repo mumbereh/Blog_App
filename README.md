@@ -90,7 +90,7 @@ If you like this project, you can support me by clicking on the start
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank...
+I would like to thank my code reviewer and microverse community
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
