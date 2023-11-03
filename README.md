@@ -1,3 +1,56 @@
+  <h3><b>Data Model</b></h3>
+
+</div>
+
+
+
+# 📗 Table of Contents
+
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
+- [📝 License](#license)
+
+# 📖 Data Model <a name="about-project"></a>
+
+**[Data Model]**  The project implements a database schema using ActiveRecord, defining tables for managing data related to comments, likes, posts, and users. It also establishes foreign key relationships to maintain data integrity between these tables. it's  typically part of a Ruby on Rails application's database migration, defining the structure of the database.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+<summary>Backend</summary>
+  <ul>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://www.ror-lang.org/en/">Rails</a></li>
+  </ul>
+</details>
+
+### Key Features <a name="key-features"></a>
+
+- **This project was built with ruby & ROR**
+- **The project code is clear for future use]***
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To use this project : 
 - `https://github.com/mumbereh/Data_model.git` to clone the project
 - Make sure that you have ruby & rails  installed on your computer
 
