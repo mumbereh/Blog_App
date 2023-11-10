@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   after_create :increment_post_counter
 
   def create_like(user)
-    likes.create(user: user)
+    likes.create(user:)
   end
 
   def five_recent_comments
