@@ -1,17 +1,20 @@
 class PostsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:index]
+  before_action :set_post, only: [:show]
 
   def index
-    # logic to fetch all posts by a given user goes here
+    @posts = @user.posts.paginate(page: params[:page], per_page: 2) if @user
   end
 
-  def show
-    # logic to fetch a single post goes here
-  end
+  def show; end
 
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find_by(id: params[:user_id])
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

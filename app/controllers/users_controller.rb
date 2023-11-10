@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    # logic to fetch all users goes here
+    @users = User.all
   end
 
   def show
-    # logic to fetch a single user goes here
+    @user = User.find(params[:id])
   end
 end

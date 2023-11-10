@@ -1,1 +1,11 @@
-<h1>Single Post</h1>
+<%= render partial: 'post', locals: { post: @post } %> <br>
+
+<% if @post.comments.empty? %>
+  <p>There are no comments for this post.</p>
+<% end %>
+
+<div class="comments">
+  <% @post.comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+</div>

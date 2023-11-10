@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
+<div id="user">
+  <% if @user.photo.present? %>
+    <img id="user-picture" src="<%= @user.photo %>" alt="User Photo">
+  <% end %>
+
+  <article id="user-info">
+    <h1><%= @user.name %></h1>
+    <p>Number of Posts: <%= @user.posts_comments.nil? ? 0 : @user.posts_counter %></p>
+  </article>
+
+</div>
+
+</body>
+</html>
