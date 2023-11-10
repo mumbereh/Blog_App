@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user.increment!(:posts_counter)
+    @user.increment!(:posts_counter)
+    @recent_posts = @user.recent_posts(3)
   end
 
   private
