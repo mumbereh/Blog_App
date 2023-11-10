@@ -1,51 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile</title>
-  <header>
-    <%= stylesheet_link_tag 'user', class: 'all', 'data-turbolinks-track': 'reload' %>
-  </header>
-</head>
+<div class="container">
 
-<body>
-
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="user-info-container">
-        <% if @user.photo.present? %>
-          <%= image_tag @user.photo, class: 'user-photo' %>
-        <% end %>
-
-        <div class="user-name"><%= @user.name %></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="bio-section">
-    <h2 class="bio-header">Bio</h2>
-    <p class="bio-text"><%= @user.bio %></p>
-  </div>
+  <%= render 'shared/user_details', user: @user %>
 
   <h2 class="mt-4">Posts</h2>
-  <ul class="list-group">
-    <% if @user.posts.empty? %>
-      <li class="list-group-item">There are no posts for this user</li>
-    <% else %>
-      <% @user.recent_posts.each do |post| %>
-        <%= render post %>
+
+
+   <div class="post-page">
+      <% @user.three_recent_posts.each do |post| %>
+        <div class="post-card">
+            <div class="post-info">
+              <%= render 'shared/post_summary', post: post %>
+              <p class="card-text"><%= post.text %></p>
+            </div>
+            
+            <div class="com-post">
+                <p class="card-text"><strong>Comments:</strong> <%= post.comments_counter %></p>
+                <p class="card-text"><strong>Likes:</strong> <%= post.likes_counter %></p>
+            </div>
+        </div>
       <% end %>
-    <% end %>
-  </ul>
-
-  <div class="button-container">
-    <button><a href="<%= user_posts_path(@user) %>">See All Posts</a></button>
-  </div>
+      <%= link_to "See all posts", user_posts_path(@user), class:"all-posts-btn"%>
+    </div>
 </div>
-
-</body>
-
-</html>

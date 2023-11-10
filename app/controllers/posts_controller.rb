@@ -1,20 +1,28 @@
 class PostsController < ApplicationController
-  before_action :set_user, only: [:index]
-  before_action :set_post, only: [:show]
+  before_action :set_user, only: %i[index show]
 
   def index
-    @posts = @user.posts.paginate(page: params[:page], per_page: 2) if @user
+    @user = User.find(params[:user_id])
+    @posts = @user.posts
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def like
+    @post = Post.find(params[:id])
+    if current_user.likes.exists?(post: @post)
+      redirect_to @post, alert: 'You have already liked this post.'
+    else
+      current_user.likes.create(post: @post)
+      redirect_to @post, notice: 'Post liked!'
+    end
+  end
 
   private
 
   def set_user
-    @user = User.find_by(id: params[:user_id])
-  end
-
-  def set_post
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 end

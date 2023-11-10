@@ -1,11 +1,20 @@
-<%= render partial: 'post', locals: { post: @post } %> <br>
 
-<% if @post.comments.empty? %>
-  <p>There are no comments for this post.</p>
-<% end %>
+<div class="comments-page">
+    <h5><%=  @post.title %> by <%= @user.name%></h5>
 
-<div class="comments">
-  <% @post.comments.each do |comment| %>
-    <%= render comment %>
-  <% end %>
+    <div class="comments-details">
+        <p><strong>Text:</strong><%= @post.text %></p>
+
+        <div class="comments-post">
+            <p class="card-text"><strong>Comments:</strong> <%= @post.comments_counter %></p>
+            <p class="card-text"><strong>Likes:</strong> <%= @post.likes_counter %></p>
+        </div>
+    </div>
+  
+
+    <h2>Comments</h2>
+    <% @post.comments.each do | comment |%>
+        <%= render 'shared/comment', comment: comment%>
+    <% end %>
+
 </div>
