@@ -6,8 +6,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @user.increment!(:posts_counter)
     @recent_posts = @user.recent_posts(3)
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'User not found', status: :not_found
   end
 
   private
