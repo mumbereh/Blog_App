@@ -1,0 +1,50 @@
+<style>
+  .user-profile {
+    text-align: center;
+    max-width: 600px; /* Adjust the max-width to your preference */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px; /* Add some padding for better visual appeal */
+    border: 1px solid #ccc; /* Add a border for separation */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Adjust the margin as needed */
+  }
+
+  .profile-info {
+    margin-left: 20px; /* Add some space between the image and text */
+  }
+
+  .profile-name {
+    font-size: 1.5em; /* Adjust the font size as needed */
+    margin-bottom: 5px; /* Add some space below the name */
+  }
+
+  .profile-post {
+    font-style: italic; /* Make the post count italic for emphasis */
+  }
+
+  .profile-bio {
+    margin-top: 20px; /* Add space between the header and bio */
+  }
+</style>
+
+<div class="user-profile">
+  <div class="profile-header">
+    <%= image_tag user.photo, alt: "#{user.name}'s photo", class: 'rounded-photo' %>
+    <div class="profile-info">
+      <h2 class="profile-name"><%= link_to user.name, user_path(user), class: 'profile-link' %></h2>
+      <p class="profile-post">Posts: <%= user.posts_counter %></p>
+    </div>
+  </div>
+  
+  <div class="profile-bio">
+    <p><strong>Bio:</strong></p>
+    <p><%= @user.bio %></p>
+  </div>
+</div>
+
