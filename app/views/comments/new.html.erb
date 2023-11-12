@@ -1,9 +1,9 @@
-<h1>New Comment</h1>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :text %>
-    <%= f.text_area :text %>
-  </div>
-
-  <%= f.submit "Create Comment", class: "btn btn-primary" %>
-<% end %>
+<%= form_for([@post, @post.comments.build], url: user_post_comments_path(@post.user, @post)) do |f| %>
+    <div class="field">
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+    </div>
+  
+    <%= f.submit "Create Comment", class: "btn btn-primary" %>
+  <% end %>
+  
