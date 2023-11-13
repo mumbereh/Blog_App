@@ -1,5 +1,6 @@
 <h1>New Post</h1>
-<%= form_for(@post) do |f| %>
+
+<%= form_for([@user, @post]) do |f| %>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -12,3 +13,5 @@
 
   <%= f.submit "Create Post" %>
 <% end %>
+
+<%= button_to "Cancel", user_posts_path(@user), method: :get, class: "btn btn-secondary" %>
