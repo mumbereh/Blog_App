@@ -1,25 +1,20 @@
-
-<div class="container">
-
-  <%= render 'shared/user_details', user: @user %>
-
-  <h2 class="mt-4">Posts</h2>
-
-  <div class="post-page">
-    <% @user.three_recent_posts.each do |post| %>
-      <div class="post-card">
-        <div class="post-info">
-          <%= render 'shared/post_summary', post: post %>
-          <p class="card-text"><%= post.text %></p>
-        </div>
-
-        <div class="com-post">
-          <p class="card-text"><strong>Comments:</strong> <%= post.comments_counter %></p>
-          <p class="card-text"><strong>Likes:</strong> <%= post.likes_counter %></p>
-        </div>
-      </div>
-    <% end %>
-
-    <%= link_to "See all posts", user_posts_path(@user), class: "all-posts-btn" %>
-  </div>
+<div class="user">
+  <%= render partial: "users/user_user", locals: { user: @user } %>
 </div>
+
+<div id="user_bio">
+  <h3>Bio</h3>
+  <p><%= @user.bio %></p>
+</div>
+
+<div id="posts_container">
+  <% @user.three_recent_posts.each_with_index do |post, i| %>
+    <li>
+    <%= link_to "/users/#{@user.id}/posts/#{post.id}", class: "post", id: post.id do %>
+        <%= render partial: "posts/post_user", locals: { post: post } %>
+      <% end %>
+    </li>
+  <% end %>
+</div>
+
+<%= link_to "See all posts", "/users/#{@user.id}/posts?page=1" %>
