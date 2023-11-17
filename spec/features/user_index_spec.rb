@@ -5,12 +5,12 @@ RSpec.describe 'When I open user index page', type: :system do
     Comment.delete_all
     Post.delete_all
     User.delete_all
-    @first_user = User.create(name: 'mumbere habert', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                              bio: 'Developer from Microverse.')
-    @second_user = User.create(name: 'Rolyn Maya', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                               bio: 'Student from Microverse.')
-    @third_user = User.create(name: 'Ben Matandiko', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                              bio: 'Driver from Uganda.')
+
+first_user = User.create(name: 'Mumbere', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Hunter.')
+second_user = User.create(name: 'Masika', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Software Developer.')
+third_user = User.create(name: 'Kabugho', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Driver.')
+fourth_user = User.create(name: 'Biira', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Cleaner.')
+
     Post.create(author: @first_user, title: 'Title')
     Post.create(author: @first_user, title: 'Title')
     Post.create(author: @second_user, title: 'Title')
