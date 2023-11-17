@@ -1,24 +1,9 @@
-
-<div class="container">
-  <h1 class="mb-4">All Users</h1>
+<ul id="users_container">
   <% @users.each do |user| %>
-    <div class="user-container">
-        <div class="user-photo">
-          <%= image_tag user.photo, alt: "#{user.name}'s photo"%>
-        </div>
-        <div class="user-info">
-            <h5 class="user-name"><%= link_to user.name, user_path(user),class:'user-link' %></h5>
-            <p class="user-post">Posts: <%= user.posts_counter %></p>
-        </div>
-    </div>
+    <li>
+      <%= link_to user_url(user), class: "user", id: user.name do %>
+        <%= render partial: "users/user_info", locals: { user: user } %>
+      <% end %>
+    </li>
   <% end %>
-</div>
-
-
-
-
-
-
-
-
-
+</ul>

@@ -57,14 +57,19 @@ To use this project :
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author <a name="authors"></a>
+## 👥 Author 1<a name="authors"></a>
 
 👤 **Mumbere Habert**
 - GitHub: [mumbereh](https://github.com/mumbereh)
 - Twitter: [@mumberehabert1](https://twitter.com/mumberehabert1)
 - LinkedIn: [Mumbere Habert](https://www.linkedin.com/in/mumbere-habert-33898a255/)
 
+## 👥 Authors 2<a name="authors"></a>
 
+👤 **Ngala Mac**
+
+- GitHub: [ngalamac](https://github.com/ngalamac)
+- LinkedIn: [Ngala Mac](https://www.linkedin.com/in/ngala-mac-872a65220/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>

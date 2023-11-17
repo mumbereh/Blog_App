@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context '#create' do
+    it 'is valid with existing name' do
+      expect(User.create(name: 'Tom')).to be_valid
+    end
+
     it 'is not valid with blank name' do
       expect(User.create(name: nil)).to_not be_valid
     end
@@ -27,6 +31,10 @@ RSpec.describe User, type: :model do
     before :all do
       @user = User.create(name: 'Tom')
       5.times { |post_i| Post.create(author: @user, title: (post_i + 1).to_s) }
+    end
+
+    it 'returns three posts' do
+      expect(@user.three_recent_posts.length).to eq 3
     end
 
     it 'returns most recent posts with titles 3, 4, 5' do
