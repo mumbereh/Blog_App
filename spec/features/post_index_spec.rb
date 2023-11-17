@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 require './spec/features/placeholder'
 
@@ -115,10 +114,3 @@ RSpec.describe 'When I open user index page', type: :system do
     end
   end
 end
-
-the branch name isN+1_fixing . 
-
-past the code in post_index_spec.erb.  
-under features in spec. 
-
-add your contacts to the authors
