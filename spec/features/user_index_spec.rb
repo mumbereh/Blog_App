@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'When I open user index page', type: :system do
   before :all do
     Like.delete_all
@@ -6,62 +7,52 @@ RSpec.describe 'When I open user index page', type: :system do
     Post.delete_all
     User.delete_all
 
-first_user = User.create(name: 'Mumbere', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Hunter.')
-second_user = User.create(name: 'Masika', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Software Developer.')
-third_user = User.create(name: 'Kabugho', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Driver.')
-fourth_user = User.create(name: 'Biira', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Cleaner.')
+    @first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                              bio: 'Teacher from Mexico.')
+    @second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                               bio: 'Teacher from Poland.')
+    @third_user = User.create(name: 'Alan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                              bio: 'Singer from Mexico.')
 
-    Post.create(author: @first_user, title: 'Title')
-    Post.create(author: @first_user, title: 'Title')
-    Post.create(author: @second_user, title: 'Title')
+    @first_user.posts.create(title: 'Title')
+    @first_user.posts.create(title: 'Title')
+    @second_user.posts.create(title: 'Title')
   end
-  it 'should have 3 users' do
+
+  it 'should display 3 users' do
     visit users_path
-    sleep(1)
     expect(page.all('ul#users_container li').size).to eq(3)
   end
-  it 'shows the username of all other users' do
+
+  it 'shows the username of all users' do
     visit users_path
-    sleep(1)
-    expect(page).to have_text(@first_user.name)
-    expect(page).to have_text(@second_user.name)
-    expect(page).to have_text(@third_user.name)
+    [@first_user, @second_user, @third_user].each do |user|
+      expect(page).to have_text(user.name)
+    end
   end
+
   it 'shows the profile picture for each user' do
     visit users_path
-    sleep(1)
-    expect(page).to have_css("img[src='#{@first_user.photo}']")
-    expect(page).to have_css("img[src='#{@second_user.photo}']")
-    expect(page).to have_css("img[src='#{@third_user.photo}']")
+    [@first_user, @second_user, @third_user].each do |user|
+      expect(page).to have_css("img[src='#{user.photo}']")
+    end
   end
+
   it 'shows the number of posts each user has written' do
     visit users_path
-    sleep(1)
-    expect(page).to have_content('Number of posts: 2')
-    expect(page).to have_content('Number of posts: 1')
-    expect(page).to have_content('Number of posts: 0')
+    expect(page).to have_content('Number of posts: 2', count: 1)
+    expect(page).to have_content('Number of posts: 1', count: 1)
+    expect(page).to have_content('Number of posts: 0', count: 1)
   end
+
   context 'When I click on a user' do
-    it "redirects to first user's show page" do
-      visit users_path
-      sleep(1)
-      click_link(@first_user.name)
-      sleep(1)
-      expect(page).to have_current_path(user_path(@first_user))
-    end
-    it "redirects to second user's show page" do
-      visit users_path
-      sleep(1)
-      click_link(@second_user.name)
-      sleep(1)
-      expect(page).to have_current_path(user_path(@second_user))
-    end
-    it "redirects to third user's show page" do
-      visit users_path
-      sleep(1)
-      click_link(@third_user.name)
-      sleep(1)
-      expect(page).to have_current_path(user_path(@third_user))
+    it 'redirects to the user\'s show page' do
+      users = [@first_user, @second_user, @third_user]
+      users.each do |user|
+        visit users_path
+        click_link(user.name)
+        expect(page).to have_current_path(user_path(user))
+      end
     end
   end
 end

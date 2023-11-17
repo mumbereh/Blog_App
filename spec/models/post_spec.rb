@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'is valid with existing title' do
-    expect(Post.new(author: @author, title: 'Game of Thrones')).to be_valid
+    expect(Post.new(author: @author, title: 'Harry Potter')).to be_valid
   end
 
   it 'is not valid with blank title' do
@@ -18,19 +18,19 @@ RSpec.describe Post, type: :model do
   end
 
   it 'is not valid with non-numeric comments_counter' do
-    expect(Post.new(author: @author, title: 'Game of Thrones', comments_counter: 'five')).to_not be_valid
+    expect(Post.new(author: @author, title: 'Harry Potter', comments_counter: 'five')).to_not be_valid
   end
 
   it 'is not valid with float comments_counter' do
-    expect(Post.new(author: @author, title: 'Game of Thrones', comments_counter: 1.5)).to_not be_valid
+    expect(Post.new(author: @author, title: 'Harry Potter', comments_counter: 1.5)).to_not be_valid
   end
 
   it 'is not valid with negative comments_counter' do
-    expect(Post.new(author: @author, title: 'Game of Thrones', comments_counter: -1)).to_not be_valid
+    expect(Post.new(author: @author, title: 'Harry Potter', comments_counter: -1)).to_not be_valid
   end
 
   it 'is valid with integer comments_counter' do
-    expect(Post.new(author: @author, title: 'Game of Thrones', comments_counter: 5)).to be_valid
+    expect(Post.new(author: @author, title: 'Harry Potter', comments_counter: 5)).to be_valid
   end
 
   context '#five_recent_comments' do
@@ -54,7 +54,7 @@ RSpec.describe Post, type: :model do
 
   context '#update_posts_counter' do
     before :all do
-      8.times { Post.create(author: @author, title: 'Game of Thrones') }
+      8.times { Post.create(author: @author, title: 'Harry Potter') }
     end
 
     it 'keeps track of posts and equals 9' do

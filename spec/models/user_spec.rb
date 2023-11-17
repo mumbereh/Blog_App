@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context '#create' do
     it 'is valid with existing name' do
-      expect(User.create(name: 'Phil')).to be_valid
+      expect(User.create(name: 'Tom')).to be_valid
     end
 
     it 'is not valid with blank name' do
@@ -11,25 +11,25 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid with non-numeric posts_counter' do
-      expect(User.create(name: 'Phil', posts_counter: 'five')).to_not be_valid
+      expect(User.create(name: 'Tom', posts_counter: 'five')).to_not be_valid
     end
 
     it 'is not valid with float posts_counter' do
-      expect(User.create(name: 'Phil', posts_counter: 1.5)).to_not be_valid
+      expect(User.create(name: 'Tom', posts_counter: 1.5)).to_not be_valid
     end
 
     it 'is not valid with negative posts_counter' do
-      expect(User.create(name: 'Phil', posts_counter: -1)).to_not be_valid
+      expect(User.create(name: 'Tom', posts_counter: -1)).to_not be_valid
     end
 
     it 'is valid with integer posts_counter' do
-      expect(User.create(name: 'Phil', posts_counter: 5)).to be_valid
+      expect(User.create(name: 'Tom', posts_counter: 5)).to be_valid
     end
   end
 
   context '#three_recent_posts' do
     before :all do
-      @user = User.create(name: 'Phil')
+      @user = User.create(name: 'Tom')
       5.times { |post_i| Post.create(author: @user, title: (post_i + 1).to_s) }
     end
 

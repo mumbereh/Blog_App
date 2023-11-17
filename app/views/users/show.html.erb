@@ -1,5 +1,5 @@
 <div class="user">
-  <%= render partial: "users/user_user", locals: { user: @user } %>
+  <%= render partial: "users/user_info", locals: { user: @user } %>
 </div>
 
 <div id="user_bio">
@@ -8,13 +8,13 @@
 </div>
 
 <div id="posts_container">
-  <% @user.three_recent_posts.each_with_index do |post, i| %>
+  <% @user.three_recent_posts.each do |post| %>
     <li>
-    <%= link_to "/users/#{@user.id}/posts/#{post.id}", class: "post", id: post.id do %>
-        <%= render partial: "posts/post_user", locals: { post: post } %>
+      <%= link_to user_post_path(@user, post), class: "post", id: post.id do %>
+        <%= render partial: "posts/post_info", locals: { post: post } %>
       <% end %>
     </li>
   <% end %>
 </div>
 
-<%= link_to "See all posts", "/users/#{@user.id}/posts?page=1" %>
+<%= link_to "See all posts", user_posts_path(@user, page: 1) %>

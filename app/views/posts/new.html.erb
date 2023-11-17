@@ -1,8 +1,8 @@
 <h1>Create a new Post</h1>
 
-<% flash.each do |name, msg| -%>
+<% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: name %>
-<% end -%>
+<% end %>
 
 <%= form_with model: [:user, @post], data: { turbo: false }, local: true do |f| %>
   <div>

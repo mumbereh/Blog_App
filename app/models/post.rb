@@ -15,6 +15,4 @@ class Post < ApplicationRecord
   def update_posts_counter
     author.increment!(:posts_counter)
   end
-
-  self.per_page = 10
 end
