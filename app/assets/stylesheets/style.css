@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica', 'Geneva', 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+li {
+  list-style-type: none;
+}
+
+a,
+img {
+  text-decoration: none;
+  color: #555;
+}
+
+.post {
+  display: block;
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#container {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #e0e0e0, #f8f8f8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#container,
+#users_container,
+#posts_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.user {
+  display: flex;
+  height: 6rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.user_text,
+.post {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #333;
+}
+
+#user_bio,
+.post,
+.comments_container {
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.counter {
+  text-align: right;
+}
+
+.user_text {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 4;
+}
+
+.user_text p {
+  align-self: flex-end;
+}
+
+.user_photo {
+  flex: 1;
+}
+
+.pagination {
+  margin: 0 auto;
+  color: #333;
+}
+
+.pagination a {
+  text-decoration: underline;
+  color: #7d80e6;
+}
+
+.comments_container,
+#user_bio {
+  border: 1px solid #7d80e6;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.form-head {
+  margin-top: 30px;
+  color: #333;
+  margin-left: 30px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#user_bio {
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
