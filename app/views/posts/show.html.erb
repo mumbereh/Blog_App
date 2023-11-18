@@ -4,6 +4,15 @@
     Comments: <%= @post.comments_counter.to_i %>, Likes: <%= @post.likes_counter.to_i %>
   </p>
   <p><%= @post.text %></p>
+
+  <% if can? :update, @post %>
+    <%= link_to 'Edit', edit_user_post_path(current_user, @post) %> |
+  <% end %>
+
+  <% if can? :destroy, @post %>
+    <%= link_to 'Delete', user_post_path(current_user, @post), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+
 </div>
 
 <% flash.each do |name, msg| %>
@@ -14,9 +23,17 @@
   <% @post.comments.includes([:user]).each do |comment| %>
     <li class="comment">
       <p><%= "#{comment.user.name}: #{comment.text}" %></p>
+
+      <% if can? :update, comment %>
+        <%= link_to 'Edit', edit_user_post_comment_path(current_user, @post, comment) %> |
+      <% end %>
+
+      <% if can? :destroy, comment %>
+        <%= link_to 'Delete', user_post_comment_path(current_user, @post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </li>
   <% end %>
 </ul>
 
 <%= render partial: "likes/like_action", locals: { post: @post } %>
-<%= link_to 'New Comment', new_user_post_comment_path(post_id: params[:id]) %>
+<%= link_to 'New Comment', new_user_post_comment_path(current_user, post_id: @post.id) %>
